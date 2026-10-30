@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0e13" />
+  <meta name="description" content="Vrutik Pansuriya — Game Programmer & Unreal Engine Developer specializing in gameplay systems, AI and combat mechanics." />
+  <title>Vrutik Pansuriya | Game Programmer &amp; Unreal Engine Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0e13;
+      --surface: #111720;
+      --surface-2: #151e29;
+      --line: rgba(222, 232, 245, .11);
+      --text: #f2f5f8;
+      --muted: #a0adbb;
+      --soft: #778594;
+      --accent: #b6f36b;
+      --accent-2: #7de0c3;
+      --max: 1160px;
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 82% 6%, rgba(57, 114, 111, .16), transparent 33rem),
+        radial-gradient(ellipse at 5% 30%, rgba(100, 120, 66, .10), transparent 30rem),
+        var(--bg);
+      font-family: 'Manrope', sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .mono, .eyebrow, .nav-index, .project-kicker, .metric-label { font-family: 'DM Mono', monospace; }
+    .eyebrow { color: var(--accent); font-size: .76rem; letter-spacing: .15em; text-transform: uppercase; }
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      background: rgba(11,14,19,.82); backdrop-filter: blur(18px);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 76px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.04em; }
+    .brand-mark-photo { display: block; width: 34px; height: 34px; flex: 0 0 34px; object-fit: cover; object-position: center 25%; border-radius: 10px; border: 0; box-shadow: none; filter: grayscale(1) saturate(0); }
+    .brand span:last-child { font-size: .96rem; }
+    .nav-links { display: flex; align-items: center; gap: 30px; color: var(--muted); font-size: .86rem; }
+    .nav-links a { transition: color .2s ease; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta { color: var(--accent) !important; border: 1px solid rgba(182,243,107,.38); padding: 9px 15px; border-radius: 999px; }
+    .menu-toggle { display: none; border: 1px solid var(--line); background: var(--surface); color: var(--text); padding: 8px 12px; border-radius: 10px; }
+
+    .hero { padding: 104px 0 78px; min-height: 620px; display: flex; align-items: center; }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 70px; align-items: center; }
+    .availability { display: inline-flex; align-items: center; gap: 9px; padding: 7px 12px; border: 1px solid rgba(182,243,107,.25); border-radius: 999px; background: rgba(182,243,107,.055); color: #d6efb9; font-size: .75rem; margin-bottom: 26px; }
+    .availability::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+    h1 { font-size: clamp(3rem, 6.4vw, 5.9rem); line-height: .99; letter-spacing: -.075em; margin: 0; max-width: 770px; }
+    h1 .muted-line { display: block; color: #8e9aa7; }
+    .hero-copy { color: var(--muted); font-size: 1.05rem; max-width: 620px; margin: 28px 0 0; }
+    .hero-copy strong { color: var(--text); font-weight: 700; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 19px; border-radius: 12px; font-size: .86rem; font-weight: 800; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: #11170c; background: var(--accent); }
+    .btn-primary:hover { background: #c7ff83; }
+    .btn-secondary { color: var(--text); background: rgba(255,255,255,.035); border: 1px solid var(--line); }
+    .btn-secondary:hover { border-color: rgba(182,243,107,.45); }
+    .hero-side { position: relative; min-height: 345px; display: grid; place-items: center; }
+    .orbit { position: absolute; width: 315px; height: 315px; border: 1px solid rgba(182,243,107,.18); border-radius: 50%; transform: rotate(-22deg) scaleY(.72); }
+    .orbit::before, .orbit::after { content: ''; position: absolute; border: 1px solid rgba(125,224,195,.15); border-radius: 50%; inset: 26px -30px; transform: rotate(65deg); }
+    .orbit::after { inset: 56px -10px; transform: rotate(-28deg); }
+    .hero-emblem { position: relative; width: 265px; height: 300px; display: block; overflow: hidden; border-radius: 34px; background: #172329; border: 1px solid rgba(214,239,185,.25); box-shadow: 0 35px 90px rgba(0,0,0,.45), inset 0 1px rgba(255,255,255,.12); transform: rotate(-5deg); }
+    .hero-emblem::before { content: ''; position: absolute; z-index: 2; inset: 12px; border: 1px solid rgba(182,243,107,.30); border-radius: 26px; pointer-events: none; }
+    .hero-profile-photo { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 23%; filter: contrast(1.04); }
+    .emblem-caption { position: absolute; z-index: 3; bottom: 12px; left: 12px; right: 12px; padding: 9px 8px; border-radius: 8px; background: rgba(8,12,14,.78); color: #d0ded0; text-align: center; font: .58rem 'DM Mono', monospace; letter-spacing: .08em; transform: rotate(5deg); }
+    .side-note { position: absolute; right: -6px; bottom: 10px; color: var(--soft); font: .68rem 'DM Mono', monospace; letter-spacing: .12em; }
+
+    .metrics { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.018); }
+    .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .metric { padding: 25px 22px; border-right: 1px solid var(--line); }
+    .metric:first-child { padding-left: 0; }
+    .metric:last-child { border: 0; }
+    .metric-value { display: block; font-size: 1.7rem; font-weight: 800; letter-spacing: -.06em; }
+    .metric-label { display: block; margin-top: 3px; color: var(--soft); text-transform: uppercase; letter-spacing: .1em; font-size: .64rem; }
+
+    section { padding: 106px 0; }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 42px; }
+    .section-heading h2 { margin: 10px 0 0; font-size: clamp(2.25rem, 4vw, 3.5rem); line-height: 1.04; letter-spacing: -.07em; }
+    .section-intro { max-width: 420px; color: var(--muted); margin: 0 0 4px; font-size: .93rem; }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .project-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(160deg, rgba(255,255,255,.045), rgba(255,255,255,.012)); transition: transform .25s ease, border-color .25s ease; }
+    .project-card:hover { transform: translateY(-5px); border-color: rgba(182,243,107,.36); }
+    .project-card.featured { grid-column: span 2; display: grid; grid-template-columns: 1.08fr .92fr; }
+    .project-art { display: block; min-height: 260px; position: relative; overflow: hidden; background: #18232a; cursor: pointer; }
+    .project-card.featured .project-art { min-height: 320px; height: 100%; }
+    .project-card:not(.featured) .project-art { min-height: 0; aspect-ratio: 16 / 9; }
+    .project-thumbnail { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; filter: blur(.85px); transform: scale(1.012); transition: transform .35s ease, filter .35s ease; }
+    .project-art:hover .project-thumbnail, .project-art:focus-visible .project-thumbnail { filter: blur(0); transform: scale(1.035); }
+    .project-role { width: 100%; margin-top: 16px; padding: 10px 12px; border-left: 2px solid var(--accent); background: rgba(182,243,107,.045); color: #c5d0d9; font-size: .78rem; line-height: 1.55; }
+    .project-role strong { color: var(--text); }
+    .project-content { padding: 28px 30px 30px; display: flex; flex-direction: column; align-items: flex-start; }
+    .project-kicker { color: var(--accent); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
+    .project-content h3 { margin: 10px 0 10px; font-size: 1.5rem; letter-spacing: -.055em; line-height: 1.2; }
+    .project-content h3 a { color: inherit; text-decoration: none; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 5px; transition: color .2s ease; }
+    .project-content h3 a:hover { color: var(--accent); text-decoration: underline; }
+    .project-content p { color: var(--muted); font-size: .88rem; margin: 0; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
+    .tag { padding: 6px 9px; border: 1px solid var(--line); border-radius: 999px; color: #b7c2cc; font: .65rem 'DM Mono', monospace; }
+    .project-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: auto; padding-top: 24px; }
+    .text-link { color: var(--accent); font-size: .79rem; font-weight: 800; }
+    .text-link span { display: inline-block; transition: transform .2s ease; }
+    .text-link:hover span { transform: translate(3px,-2px); }
+    .project-card.featured .project-content { padding: 36px 38px; }
+    .project-card.featured .project-content h3 { font-size: 2rem; }
+
+    .about-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 80px; align-items: start; }
+    .about-lead { font-size: 1.45rem; line-height: 1.45; letter-spacing: -.045em; margin: 0; }
+    .about-lead strong { color: var(--accent); font-weight: 700; }
+    .about-copy { color: var(--muted); font-size: .94rem; margin: 22px 0 0; }
+    .about-note { margin-top: 30px; border-left: 2px solid var(--accent); padding: 4px 0 4px 18px; color: #dbe4e9; font-size: .86rem; }
+    .skill-layout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .skill-box { border: 1px solid var(--line); border-radius: 16px; padding: 22px; background: rgba(255,255,255,.022); }
+    .skill-box h3 { font-size: .95rem; margin: 0 0 13px; }
+    .skill-box p { color: var(--muted); font-size: .81rem; line-height: 1.75; margin: 0; }
+    .skill-number { display: block; color: var(--soft); font: .64rem 'DM Mono', monospace; margin-bottom: 13px; }
+
+    .experience { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.018); }
+    .experience-row { display: grid; grid-template-columns: .65fr 1.35fr; gap: 60px; padding: 27px 0; border-top: 1px solid var(--line); }
+    .experience-row:first-of-type { border-top: 0; }
+    .exp-date { color: var(--soft); font: .72rem 'DM Mono', monospace; }
+    .exp-title { font-size: 1.1rem; font-weight: 800; margin: 0; }
+    .exp-subtitle { color: var(--accent); font-size: .78rem; margin-top: 4px; }
+    .exp-description { color: var(--muted); font-size: .87rem; margin: 10px 0 0; max-width: 730px; }
+
+    .resume-section { padding: 78px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.018); }
+    .resume-layout { display: grid; grid-template-columns: 1fr auto; gap: 34px; align-items: center; }
+    .resume-layout h2 { margin: 10px 0 12px; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.05; letter-spacing: -.065em; }
+    .resume-layout p { max-width: 680px; color: var(--muted); font-size: .91rem; margin: 0; }
+    .resume-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
+    .contact { padding: 112px 0 82px; }
+    .contact-layout { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(38px, 7vw, 88px); align-items: center; }
+    .contact-profile { text-align: center; padding: 30px 24px 26px; border: 1px solid var(--line); border-radius: 22px; background: linear-gradient(155deg, rgba(255,255,255,.045), rgba(255,255,255,.012)); }
+    .profile-orbit { width: min(238px, 100%); aspect-ratio: 1; margin: 0 auto 23px; display: grid; place-items: center; position: relative; border: 1px solid rgba(182,243,107,.22); border-radius: 50%; background: radial-gradient(circle, rgba(182,243,107,.10), rgba(125,224,195,.035) 48%, transparent 70%); }
+    .profile-orbit::before, .profile-orbit::after { content: ''; position: absolute; inset: 13px; border: 1px solid rgba(125,224,195,.18); border-radius: 50%; }
+    .profile-orbit::after { inset: -8px 25px; transform: rotate(56deg); border-color: rgba(182,243,107,.13); }
+    .profile-avatar { width: 174px; height: 174px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid rgba(182,243,107,.34); background: linear-gradient(145deg, #283b32, #172329 58%, #101820); box-shadow: 0 20px 55px rgba(0,0,0,.35), inset 0 1px rgba(255,255,255,.12); }
+    .profile-photo { width: 178px; height: 178px; position: relative; display: block; border-radius: 50%; object-fit: cover; object-position: center 27%; border: 1px solid rgba(182,243,107,.42); box-shadow: 0 20px 55px rgba(0,0,0,.4), 0 0 0 7px rgba(182,243,107,.045); }
+    .profile-avatar strong { color: var(--accent); font-size: 4rem; letter-spacing: -.12em; line-height: 1; padding-right: 7px; }
+    .profile-avatar span { margin-top: 11px; color: #d2dfd7; font: .58rem 'DM Mono', monospace; letter-spacing: .18em; }
+    .contact-profile h3 { margin: 0; font-size: 1.28rem; letter-spacing: -.045em; }
+    .contact-profile .profile-role { color: var(--muted); margin: 3px 0 0; font-size: .84rem; }
+    .profile-specialties { display: flex; justify-content: center; flex-wrap: wrap; gap: 7px; margin-top: 17px; }
+    .profile-specialties span { border: 1px solid var(--line); border-radius: 999px; padding: 5px 9px; color: #bac6ce; font: .61rem 'DM Mono', monospace; }
+    .profile-social { display: flex; justify-content: center; gap: 10px; margin-top: 21px; }
+    .profile-social a { width: 39px; height: 39px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--text); background: rgba(255,255,255,.045); transition: color .2s, border-color .2s, background .2s, transform .2s; }
+    .profile-social a:hover { color: #11170c; background: var(--accent); border-color: var(--accent); transform: translateY(-3px); }
+    .profile-social svg { width: 17px; height: 17px; fill: currentColor; }
+    .contact-content h2 { max-width: 650px; font-size: clamp(2.3rem, 4.5vw, 4rem); line-height: 1.04; letter-spacing: -.075em; margin: 11px 0 18px; }
+    .contact-content > p { max-width: 680px; color: var(--muted); font-size: .92rem; margin: 0 0 17px; }
+    .contact-items { display: grid; gap: 11px; margin-top: 27px; }
+    .contact-item { display: flex; align-items: center; gap: 14px; min-height: 58px; }
+    .contact-item-icon { flex: 0 0 42px; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; color: #11170c; background: var(--accent); }
+    .contact-item-icon svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .contact-item-copy { display: grid; gap: 1px; min-width: 0; }
+    .contact-item-copy strong { font-size: .79rem; }
+    .contact-item-copy span, .contact-item-copy a { color: var(--muted); font-size: .81rem; overflow-wrap: anywhere; }
+    .contact-item-copy a:hover { color: var(--accent); }
+    .contact-note { margin-top: 27px; padding: 15px 18px; border-left: 2px solid var(--accent); background: rgba(182,243,107,.045); color: #d6e0e5; font-size: .82rem; }
+    .contact-edit-hint { color: var(--soft) !important; font-size: .68rem !important; font-family: 'DM Mono', monospace; margin-top: 15px !important; }
+    footer { padding: 25px 0 34px; color: var(--soft); font-size: .72rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 22px; }
+    .back-top { color: var(--accent); }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 850px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero { padding: 76px 0 55px; }
+      .hero-side { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 38px; }
+      .section-heading { display: block; }
+      .section-intro { margin-top: 18px; }
+    }
+    @media (max-width: 680px) {
+      .wrap { width: min(var(--max), calc(100% - 34px)); }
+      .nav { min-height: 66px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 66px; left: 0; right: 0; padding: 18px 22px 22px; background: #10161e; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; gap: 17px; }
+      .nav-links.open { display: flex; }
+      h1 { font-size: clamp(2.85rem, 15vw, 4.4rem); }
+      .hero-copy { font-size: .96rem; }
+      .metrics-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .metric { padding: 17px 10px; border-right: 1px solid var(--line); }
+      .metric-value { font-size: 1.15rem; }
+      .metric-label { font-size: .53rem; line-height: 1.5; }
+      .metric:first-child { padding-left: 0; }
+      section { padding: 78px 0; }
+      .projects { grid-template-columns: 1fr; }
+      .project-card.featured { grid-column: auto; display: flex; flex-direction: column; }
+      .project-card.featured .project-art { min-height: 220px; }
+      .project-card.featured .project-content { padding: 25px; }
+      .project-card.featured .project-content h3 { font-size: 1.55rem; }
+      .project-content { padding: 25px; }
+      .skill-layout { grid-template-columns: 1fr; }
+      .experience-row { grid-template-columns: 1fr; gap: 10px; }
+      .resume-layout { grid-template-columns: 1fr; gap: 22px; }
+      .resume-actions { justify-content: flex-start; }
+      .contact { padding-top: 78px; }
+      .contact-layout { grid-template-columns: 1fr; gap: 38px; }
+      .contact-profile { max-width: 430px; width: 100%; margin-inline: auto; }
+      .profile-orbit { width: 205px; }
+      .profile-avatar { width: 150px; height: 150px; }
+      .profile-photo { width: 154px; height: 154px; }
+      .profile-avatar strong { font-size: 3.5rem; }
+      .footer-row { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Vrutik Pansuriya home">
+        <img class="brand-mark-photo" src="assets/vrutik-profile.webp" alt="Vrutik Pansuriya" /><span>Vrutik Pansuriya</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#work">Professional Projects</a>
+        <a href="#personal">Personal projects</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#resume">Resume</a>
+        <a class="nav-cta" href="#contact">Contact ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="availability">Open to gameplay programming opportunities</div>
+          <div class="eyebrow">Game Programmer · Game Developer</div>
+          <h1>Building the systems <span class="muted-line">behind the game.</span></h1>
+          <p class="hero-copy">I'm <strong>Vrutik Pansuriya</strong>, a Game Programmer &amp; Game Developer focused on Unreal Engine gameplay, responsive mechanics, intelligent AI, and combat systems. I work with <strong>C++ and Blueprints</strong> to turn game ideas into playable experiences.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#work">Explore my work <span>↘</span></a>
+            <a class="btn btn-secondary" href="#contact">Let's talk <span>↗</span></a>
+          </div>
+        </div>
+        <div class="hero-side" aria-hidden="true">
+          <div class="orbit"></div>
+          <div class="hero-emblem"><img class="hero-profile-photo" src="assets/vrutik-hero-profile.webp" alt="Portrait of Vrutik Pansuriya" /><div class="emblem-caption">GAME PROGRAMMER / GAME DEVELOPER</div></div>
+          <div class="side-note">UNREAL ENGINE 5 — INDIA</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="metrics">
+      <div class="wrap metrics-grid">
+        <div class="metric"><span class="metric-value">UE5</span><span class="metric-label">Primary engine</span></div>
+        <div class="metric"><span class="metric-value">C++ / BP</span><span class="metric-label">Gameplay development</span></div>
+        <div class="metric"><span class="metric-value">PC + Console</span><span class="metric-label">Build & platform workflows</span></div>
+      </div>
+    </div>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <div><div class="eyebrow">01 / Professional Projects</div><h2>Projects I've helped build.</h2></div>
+          <p class="section-intro">Professional game-development work across tactical FPS and rail simulation. Each project highlights my role and the systems I contributed to.</p>
+        </div>
+        <div class="projects">
+          <article class="project-card featured reveal">
+            <a class="project-art" href="projects/strike-warfare.html" aria-label="View Strike Warfare project details">
+              <img class="project-thumbnail" src="assets/strike-warfare.jpg" alt="Strike Warfare: Battle Fury gameplay thumbnail" loading="lazy" />
+            </a>
+            <div class="project-content">
+              <div class="project-kicker">01 / Xorbix Studio · Tactical FPS · Unreal Engine 5</div>
+              <h3><a href="projects/strike-warfare.html">Strike Warfare: Battle Fury ↗</a></h3>
+              <p>A tactical first-person shooter developed in a small team. I worked across core gameplay implementation, weapon handling, damage logic, AI behaviours, UI, optimization, and platform-focused build workflows.</p>
+              <div class="project-role"><strong>My role:</strong> Gameplay Programmer — gameplay systems, weapons and damage, enemy AI, UI implementation, optimization, and platform integration.</div>
+              <div class="tag-list"><span class="tag">Gameplay Programming</span><span class="tag">Weapons & Damage</span><span class="tag">Enemy AI</span><span class="tag">UI Systems</span><span class="tag">Optimization</span><span class="tag">Platform Builds</span></div>
+              <div class="project-links"><a class="text-link" href="https://youtu.be/WYMTx5bm3Ac" target="_blank" rel="noopener noreferrer">Watch gameplay <span>↗</span></a><a class="text-link" href="https://store.steampowered.com/app/4756230/Strike_Warfare_Battle_Fury/" target="_blank" rel="noopener noreferrer">Steam store page <span>↗</span></a></div>
+            </div>
+          </article>
+
+          <article class="project-card featured reveal">
+            <a class="project-art" href="projects/train-simulator.html" aria-label="View Train Simulator project details">
+              <img class="project-thumbnail" src="assets/train-simulator.jpg" alt="Train Simulator gameplay thumbnail" loading="lazy" />
+            </a>
+            <div class="project-content">
+              <div class="project-kicker">02 / Xorbix Studio · Rail simulation · Unreal Engine</div>
+              <h3><a href="projects/train-simulator.html">Train Simulator ↗</a></h3>
+              <p>Gameplay and simulation features for a rail experience, including spline-driven train movement, bogie motion, speed control, first- and third-person camera transitions, a day/night cycle, and contextual train audio.</p>
+              <div class="project-role"><strong>My role:</strong> Gameplay Programmer — train movement and simulation, bogie motion, camera logic, day/night flow, and audio integration.</div>
+              <div class="tag-list"><span class="tag">Spline Movement</span><span class="tag">Train Simulation</span><span class="tag">Camera Systems</span><span class="tag">Day/Night Cycle</span><span class="tag">Audio Systems</span></div>
+              <div class="project-links"><a class="text-link" href="https://youtu.be/_HGWdN_hTjo" target="_blank" rel="noopener noreferrer">Watch gameplay <span>↗</span></a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="personal">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <div><div class="eyebrow">02 / Personal projects</div><h2>Experiments built on my own.</h2></div>
+          <p class="section-intro">Independent gameplay prototypes where I explore combat feel, enemy behaviour, and connected gameplay systems.</p>
+        </div>
+        <div class="projects">
+          <article class="project-card featured reveal">
+            <a class="project-art" href="projects/soulslike-combat.html" aria-label="View Souls-like Combat project details">
+              <img class="project-thumbnail" src="assets/soulslike-combat.jpg" alt="Souls-like Combat Systems gameplay thumbnail" loading="lazy" />
+            </a>
+            <div class="project-content">
+              <div class="project-kicker">01 / Personal project · Third-person action</div>
+              <h3><a href="projects/soulslike-combat.html">Souls-like Combat Systems ↗</a></h3>
+              <p>A third-person action prototype inspired by challenging action games, focused on responsive melee combat, target locking, dodge mechanics, adaptive health and damage, enemy perception, boss behaviour, and interactive water mechanics.</p>
+              <div class="project-role"><strong>My role:</strong> Personal Project Gameplay Programmer — designed and implemented the core combat, player abilities, health and damage logic, enemy AI behaviours, and interaction systems.</div>
+              <div class="tag-list"><span class="tag">Melee Combat</span><span class="tag">Target Lock</span><span class="tag">Dodge System</span><span class="tag">Enemy AI</span><span class="tag">Boss Behaviour</span><span class="tag">Interactive Water</span></div>
+              <div class="project-links"><a class="text-link" href="https://youtu.be/zrwo5nBprBs" target="_blank" rel="noopener noreferrer">Watch gameplay <span>↗</span></a><a class="text-link" href="https://vrutik-pansuriya.itch.io/soullike-combat-ue5" target="_blank" rel="noopener noreferrer">Windows build on itch.io <span>↗</span></a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about-grid">
+        <div class="reveal"><div class="eyebrow">03 / About</div><h2 style="font-size:clamp(2.25rem,4vw,3.5rem);line-height:1.04;letter-spacing:-.07em;margin:10px 0 0;">Engineer by training. Game developer by choice.</h2></div>
+        <div class="reveal">
+          <p class="about-lead">I enjoy solving the technical problems that make a game feel <strong>responsive, believable, and fun to play.</strong></p>
+          <p class="about-copy">My background is in Electrical Engineering, but my focus shifted to game development and real-time interactive systems. Working primarily in Unreal Engine, I've contributed to FPS, train simulation, and third-person action projects — taking features from gameplay requirements through implementation, debugging, optimization, and build preparation.</p>
+          <div class="about-note">I value clean gameplay architecture, practical problem-solving, and building features that work reliably beyond the editor.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-heading reveal"><div><div class="eyebrow">04 / Technical toolkit</div><h2>What I work with.</h2></div><p class="section-intro">A practical mix of gameplay programming, AI, optimization, and platform integration.</p></div>
+        <div class="skill-layout">
+          <div class="skill-box reveal"><span class="skill-number">01 — ENGINE & PROGRAMMING</span><h3>Unreal Engine Development</h3><p>Unreal Engine 5 · C++ · Blueprints · Gameplay Framework · Actor Components · Data Assets · Debugging</p></div>
+          <div class="skill-box reveal"><span class="skill-number">02 — GAMEPLAY SYSTEMS</span><h3>Gameplay & Combat</h3><p>Weapon systems · Damage models · Melee combat · Dodge & target lock · Interaction systems · Inventory and quest logic · UI programming</p></div>
+          <div class="skill-box reveal"><span class="skill-number">03 — ARTIFICIAL INTELLIGENCE</span><h3>AI & Behaviour</h3><p>AI Perception · Behaviour Trees · EQS · Enemy behaviours · Boss encounters · Navigation and gameplay decision-making</p></div>
+          <div class="skill-box reveal"><span class="skill-number">04 — PERFORMANCE & DELIVERY</span><h3>Optimization & Deployment</h3><p>LODs · Nanite · Mipmaps · Draw-call optimization · Packaging · Steam · Epic Online Services · Microsoft Store / MSIX · Console build workflows</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience" id="experience">
+      <div class="wrap">
+        <div class="section-heading reveal"><div><div class="eyebrow">05 / Experience</div><h2>How I contribute.</h2></div><p class="section-intro">From individual mechanics to broader technical ownership in small game-development teams.</p></div>
+        <div class="experience-row reveal">
+          <div class="exp-date">GAME DEVELOPMENT</div>
+          <div><h3 class="exp-title">Game Programmer &amp; Unreal Engine Developer</h3><div class="exp-subtitle">Xorbix Studio · May 2025 – Present</div><p class="exp-description">Implemented and maintained core gameplay features across FPS and simulation projects. Collaborated with designers and developers, supported junior team members, investigated performance and packaging issues, and helped prepare builds for PC and console-related delivery workflows.</p></div>
+        </div>
+        <div class="experience-row reveal">
+          <div class="exp-date">AREAS OF OWNERSHIP</div>
+          <div><h3 class="exp-title">Gameplay systems, AI, UI & optimization</h3><div class="exp-subtitle">Feature implementation · Technical problem-solving</div><p class="exp-description">Worked across gameplay mechanics, intelligent enemy behaviour, UI implementation, level optimization, localization support, platform integrations, and build troubleshooting — with an emphasis on taking features from prototype to stable implementation.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-section" id="resume">
+      <div class="wrap resume-layout reveal">
+        <div>
+          <div class="eyebrow">06 / Resume</div>
+          <h2>More about my experience.</h2>
+          <p>Download my resume for a concise overview of my Unreal Engine gameplay programming experience, professional projects, technical skills, and education.</p>
+        </div>
+        <div class="resume-actions">
+          <a class="btn btn-primary" href="assets/Vrutik-Pansuriya-Resume.pdf" download="Vrutik-Pansuriya-Resume.pdf">Download resume PDF ↓</a>
+          <a class="btn btn-secondary" href="assets/Vrutik-Pansuriya-Resume.pdf" target="_blank" rel="noopener noreferrer">View resume ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-layout">
+        <aside class="contact-profile reveal" aria-label="Vrutik Pansuriya profile">
+          <div class="profile-orbit">
+            <img class="profile-photo" src="assets/vrutik-profile.webp" alt="Portrait of Vrutik Pansuriya" loading="lazy" />
+          </div>
+          <h3>Vrutik Pansuriya</h3>
+          <p class="profile-role">Game Programmer &amp; Game Developer</p>
+          <div class="profile-specialties"><span>Unreal Engine 5</span><span>C++ / Blueprints</span></div>
+          <div class="profile-social" aria-label="Contact links">
+            <a href="mailto:0804vrutikpansuriya@gmail.com" aria-label="Email Vrutik Pansuriya" title="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/vrutik-pansuriya-b317b5205" target="_blank" rel="noopener noreferrer" aria-label="Open Vrutik Pansuriya on LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 3.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.5 9h3.4v11.5H3.5zM9 9h3.3v1.6h.05A3.65 3.65 0 0 1 15.6 8.7c3.5 0 4.2 2.3 4.2 5.2v6.6h-3.4v-5.9c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1v6H9z"/></svg>
+            </a>
+          </div>
+        </aside>
+
+        <div class="contact-content reveal">
+          <div class="eyebrow">07 / Contact</div>
+          <h2>Let's build something worth playing.</h2>
+          <p>I'm a Game Programmer &amp; Unreal Engine Developer who enjoys building responsive mechanics, intelligent AI, and gameplay systems that bring a game world to life.</p>
+          <p>I'm interested in gameplay programming opportunities and collaborations with teams creating memorable interactive experiences. Feel free to reach out to discuss a role, a project, or a technical challenge.</p>
+
+          <div class="contact-note">Open to Game Programmer and Unreal Engine Developer roles, gameplay-focused teams, and indie collaborations.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row"><span>© <span id="year"></span> Vrutik Pansuriya · Built for the love of games.</span><a class="back-top" href="#top">Back to top ↑</a></div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+<script src="assets/gif-loader.js"></script>
+</body>
+</html>

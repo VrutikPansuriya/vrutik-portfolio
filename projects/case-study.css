@@ -1,0 +1,91 @@
+:root{--bg:#0b0e13;--surface:#111720;--surface2:#151e29;--line:rgba(222,232,245,.12);--text:#f2f5f8;--muted:#a0adbb;--soft:#778594;--accent:#b6f36b;--accent2:#7de0c3;--max:1080px;--radius:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:radial-gradient(ellipse at 80% 3%,rgba(57,114,111,.14),transparent 32rem),var(--bg);color:var(--text);font-family:Manrope,Arial,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 44px));margin:auto}.mono,.eyebrow,.meta-label,.detail-kicker{font-family:'DM Mono',monospace}.site-header{position:sticky;top:0;z-index:5;background:rgba(11,14,19,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.04em;font-size:.9rem}.brand-mark-photo{display:block;width:34px;height:34px;flex:0 0 34px;object-fit:cover;object-position:center 25%;border-radius:10px;border:0;box-shadow:none;filter:grayscale(1) saturate(0)}.back-link,.nav-action{font-size:.82rem;color:var(--muted);transition:color .2s}.back-link:hover,.nav-action:hover{color:var(--accent)}.nav-actions{display:flex;gap:22px;align-items:center}.hero{padding:44px 0 0}.title-row{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;padding:34px 0 30px;border-bottom:1px solid var(--line)}.eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}h1{font-size:clamp(2.6rem,6vw,5.2rem);line-height:.98;letter-spacing:-.075em;margin:10px 0 12px}.role{margin:0;color:#d8e1e8;font-size:1.05rem;font-weight:700}.title-note{color:var(--muted);font-size:.84rem;margin-top:8px}.title-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 16px;border-radius:11px;font-size:.78rem;font-weight:800;transition:transform .2s,background .2s,border-color .2s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--accent);color:#11170c}.btn-secondary{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text)}.meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border-bottom:1px solid var(--line);background:rgba(255,255,255,.015)}.meta-item{padding:19px 22px;border-right:1px solid var(--line)}.meta-item:last-child{border:0}.meta-label{display:block;color:var(--soft);font-size:.62rem;text-transform:uppercase;letter-spacing:.12em}.meta-value{display:block;margin-top:5px;font-size:.9rem;font-weight:700}.content-section{padding:78px 0;border-bottom:1px solid var(--line)}.section-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:70px;align-items:start}.section-title{font-size:clamp(1.9rem,3vw,2.9rem);line-height:1.04;letter-spacing:-.07em;margin:9px 0 0}.section-copy{color:var(--muted);font-size:.95rem;margin:0 0 18px}.section-copy:last-child{margin-bottom:0}.detail-kicker{color:var(--accent);font-size:.67rem;letter-spacing:.13em;text-transform:uppercase}.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px}.feature-card{padding:22px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.012))}.feature-num{font: .66rem 'DM Mono',monospace;color:var(--accent)}.feature-card h3{margin:10px 0 8px;font-size:1.02rem;letter-spacing:-.03em}.feature-card p{margin:0;color:var(--muted);font-size:.82rem;line-height:1.7}.bullet-list{padding:0;margin:16px 0 0;list-style:none;display:grid;gap:10px}.bullet-list li{position:relative;padding-left:18px;color:var(--muted);font-size:.87rem}.bullet-list li:before{content:'↳';position:absolute;left:0;top:0;color:var(--accent)}.responsibility{margin-top:22px;padding:18px 20px;border-left:2px solid var(--accent);background:rgba(182,243,107,.045);color:#c5d0d9;font-size:.85rem}.responsibility strong{color:var(--text)}.next-row{display:flex;justify-content:space-between;gap:20px;padding:26px 0 44px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}.next-row a{color:var(--accent)}footer{padding:25px 0 35px;border-top:1px solid var(--line);color:var(--soft);font-size:.72rem}.footer-row{display:flex;justify-content:space-between;gap:20px}.reveal{animation:rise .65s both}@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media(max-width:760px){.wrap{width:min(var(--max),calc(100% - 32px))}.nav{height:64px}.nav-actions{gap:12px}.nav-action{display:none}.hero{padding-top:25px}.title-row{grid-template-columns:1fr;align-items:start;gap:18px;padding:27px 0}.title-actions{justify-content:flex-start}.meta-grid{grid-template-columns:1fr}.meta-item{border-right:0;border-bottom:1px solid var(--line);padding:14px 16px}.meta-item:last-child{border-bottom:0}.section-grid{grid-template-columns:1fr;gap:22px}.content-section,.feature-grid{grid-template-columns:1fr}.video-head .btn{margin-top:16px}.footer-row,.next-row{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+.tag-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}.tag{padding:6px 9px;border:1px solid var(--line);border-radius:999px;color:#b7c2cc;font:.65rem 'DM Mono',monospace}.project-links{display:flex;gap:18px;flex-wrap:wrap}.project-links a{color:var(--accent);font-size:.8rem;font-weight:800}.project-links a:hover{text-decoration:underline;text-underline-offset:4px}.btn:focus-visible,.back-link:focus-visible,.project-links a:focus-visible,.brand:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+
+/* Compact animated previews and embedded gameplay player. */
+.video-preview-card{width:min(760px,100%);margin:0 auto 24px}
+.video-preview-thumb{display:block;position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:radial-gradient(ellipse at 70% 40%,rgba(125,224,195,.13),transparent 55%),#111720}
+.video-preview-thumb img{display:block;width:100%;height:100%;object-fit:cover;filter:blur(.85px);transform:scale(1.012);transition:transform .35s ease,filter .35s ease}
+.video-preview-thumb:hover img,.video-preview-thumb:focus-visible img{filter:blur(0);transform:scale(1.025)}
+.video-preview-thumb:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.video-preview-meta{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 3px 0;color:var(--soft);font:.64rem 'DM Mono',monospace;letter-spacing:.09em;text-transform:uppercase}
+.video-preview-meta a{color:var(--accent);font-weight:500;letter-spacing:0;white-space:nowrap}
+.video-preview-meta a:hover{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:760px){.video-preview-card{margin-bottom:18px}.video-preview-thumb{border-radius:13px}.video-preview-meta{font-size:.58rem;gap:10px}}
+
+
+/* Blurred project artwork continues behind the gameplay preview and project title. */
+.hero{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:44px 0 0;
+  background:rgba(6,9,13,.08);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  z-index:-2;
+  inset:-30px 0 -24px;
+  background-image:var(--hero-image);
+  background-position:center 42%;
+  background-size:cover;
+  filter:blur(17px);
+  opacity:.78;
+  transform:scale(1.045);
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0;
+  background:
+    linear-gradient(180deg,rgba(5,9,13,.62) 0%,rgba(5,9,13,.68) 58%,rgba(5,9,13,.9) 100%),
+    linear-gradient(90deg,rgba(5,9,13,.28),rgba(5,9,13,.12));
+  pointer-events:none;
+}
+.hero>.wrap{position:relative;z-index:1}
+.video-stage{
+  display:grid;
+  place-items:center;
+  min-height:470px;
+  padding:42px 24px 28px;
+  margin:0 auto;
+  border:0;
+  border-radius:0;
+  background:transparent;
+}
+.video-preview-card{width:min(620px,100%);margin:0;position:relative;z-index:1}
+.video-preview-thumb{box-shadow:0 20px 60px rgba(0,0,0,.55)}
+.video-preview-meta{padding-left:2px;padding-right:2px}
+.title-row{border-bottom:1px solid rgba(222,232,245,.16)}
+.meta-grid{background:rgba(5,9,13,.16)}
+@media(max-width:760px){
+  .hero{padding-top:25px}
+  .video-stage{min-height:320px;padding:28px 15px 20px}
+  .video-preview-card{width:100%}
+  .video-preview-thumb{border-radius:12px}
+}
+
+
+/* Remove the thin horizontal divider rules from case-study pages. */
+.site-header,
+.title-row,
+.meta-grid,
+.content-section,
+.next-row,
+footer {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+/* Allow an optional local looping GIF to replace each static preview. */
+.video-preview-thumb picture { display:block; width:100%; height:100%; }
+
+
+/* Responsive embedded YouTube player for the personal project case study. */
+.youtube-embed-frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:#080a0d;box-shadow:0 20px 60px rgba(0,0,0,.55)}
+.youtube-embed-frame iframe{display:block;width:100%;height:100%;border:0}
+@media(max-width:760px){.youtube-embed-frame{border-radius:12px}}
